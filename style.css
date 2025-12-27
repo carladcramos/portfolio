@@ -1,0 +1,1171 @@
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray-light: #f5f5f5;
+    --color-gray-medium: #e0e0e0;
+    --color-gray-dark: #4a4a4a;
+    --color-gray-darker: #2a2a2a;
+    
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    --max-width: 1200px;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-medium);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-black);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-black);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+/* Hero container - centers content with max-width */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* Hero container - max-width for balanced layout */
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+/* Left column - text content */
+.hero-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Hero content - limited width for readability */
+.hero-content {
+    max-width: 480px;
+    width: 100%;
+}
+
+.hero-greeting {
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-gray-dark);
+}
+
+.hero-name {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-black);
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-md);
+    min-height: 1.5em; /* Prevent layout shift during animation */
+}
+
+/* Typing effect container */
+.typing-container {
+    display: inline-block;
+}
+
+/* Static "I'm" text - always visible */
+.typing-static {
+    display: inline-block;
+}
+
+/* Animated text that types and deletes */
+.typing-text {
+    display: inline-block;
+}
+
+/* Blinking cursor animation */
+.typing-cursor {
+    display: inline-block;
+    color: var(--color-black);
+    animation: cursor-blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes cursor-blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+.hero-intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.social-icons a {
+    color: var(--color-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Right column - image */
+.hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image wrapper - anchors image and controls sizing */
+.hero-image-wrapper {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image {
+    /* object-fit: contain ensures the image maintains its natural proportions
+       without being cropped or zoomed, displaying the full portrait as intended */
+    object-fit: contain;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========================================
+   SECTION STYLES
+   ======================================== */
+
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+    line-height: 1.2;
+}
+
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
+
+/* Full-width section - spans edge-to-edge */
+.about {
+    width: 100%;
+    background-color: var(--color-white);
+    padding: var(--spacing-xl) 0;
+}
+
+/* Inner container - centered content with max-width for readability */
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.about-content {
+    max-width: 100%;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-gray-darker);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-text:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   SKILLS SECTION
+   ======================================== */
+
+.skills {
+    background-color: var(--color-gray-light);
+}
+
+/* Skills category group container */
+.skills-category-group {
+    margin-bottom: var(--spacing-xl);
+}
+
+.skills-category-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Subtitle for Skills and Tools categories */
+.skills-subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-md);
+    text-align: left;
+}
+
+/* Icons grid layout */
+.skills-icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 100%;
+}
+
+/* Individual skill/tool icon item */
+.skill-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    background-color: var(--color-white);
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.skill-icon-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Icon image styling */
+.skill-icon-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Icon label text */
+.skill-icon-label {
+    font-size: 0.9rem;
+    color: var(--color-gray-darker);
+    text-align: center;
+    font-weight: 400;
+    margin-top: var(--spacing-xs);
+}
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--color-gray-darker);
+    padding-left: var(--spacing-sm);
+    position: relative;
+}
+
+.skill-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-black);
+}
+
+/* ========================================
+   PORTFOLIO SECTION
+   ======================================== */
+
+.portfolio {
+    background-color: var(--color-white);
+}
+
+/* Bootstrap overrides for portfolio cards */
+.portfolio .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-gray-medium) !important;
+}
+
+.portfolio .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.portfolio .card a:hover {
+    text-decoration: none;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background-color: var(--color-gray-light);
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========================================
+   PORTFOLIO SLIDESHOW (Ramen Express)
+   ======================================== */
+
+/* Slideshow container - positions images absolutely */
+.portfolio-slideshow {
+    position: relative;
+}
+
+/* All slideshow images are absolutely positioned and stacked */
+.portfolio-slideshow .slideshow-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* Default image (dashboard.png) - visible when not hovering */
+.portfolio-slideshow .slideshow-img-default {
+    position: relative;
+    opacity: 1;
+}
+
+/* Hover state: hide default image, enable slideshow animation */
+.portfolio-slideshow:hover .slideshow-img-default {
+    opacity: 0;
+}
+
+/* Slideshow animation cycle: 8 seconds total (2s per image × 4 images)
+   Each image visible for 25% of the cycle with fade transitions */
+@keyframes slideshow-cycle-1 {
+    0%, 24.99% { opacity: 1; }
+    25%, 100% { opacity: 0; }
+}
+
+@keyframes slideshow-cycle-2 {
+    0%, 24.99% { opacity: 0; }
+    25%, 49.99% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@keyframes slideshow-cycle-3 {
+    0%, 49.99% { opacity: 0; }
+    50%, 74.99% { opacity: 1; }
+    75%, 100% { opacity: 0; }
+}
+
+@keyframes slideshow-cycle-4 {
+    0%, 74.99% { opacity: 0; }
+    75%, 99.99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Apply animations to each slideshow image */
+.portfolio-slideshow:hover .slideshow-img-1 {
+    animation: slideshow-cycle-1 8s infinite;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.portfolio-slideshow:hover .slideshow-img-2 {
+    animation: slideshow-cycle-2 8s infinite;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.portfolio-slideshow:hover .slideshow-img-3 {
+    animation: slideshow-cycle-3 8s infinite;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.portfolio-slideshow:hover .slideshow-img-4 {
+    animation: slideshow-cycle-4 8s infinite;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Disable slideshow on touch devices (mobile/tablet) */
+@media (hover: none) and (pointer: coarse) {
+    .portfolio-slideshow:hover .slideshow-img {
+        animation: none;
+        opacity: 0;
+    }
+    
+    .portfolio-slideshow:hover .slideshow-img-default {
+        opacity: 1;
+    }
+}
+
+/* Clickable portfolio card cursor */
+.portfolio-card-clickable {
+    cursor: pointer;
+}
+
+/* ========================================
+   PORTFOLIO MODAL
+   ======================================== */
+
+/* Modal overlay - dims background */
+.portfolio-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.portfolio-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+/* Modal container */
+.portfolio-modal-container {
+    position: relative;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    margin: 2rem auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Close button */
+.portfolio-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--color-black);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+}
+
+.portfolio-modal-close:hover {
+    opacity: 0.7;
+}
+
+.portfolio-modal-close svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Modal content */
+.portfolio-modal-content {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.portfolio-modal-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-black);
+}
+
+.portfolio-modal-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-gray-darker);
+    margin-bottom: 2rem;
+}
+
+.portfolio-modal-meta {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-gray-medium);
+}
+
+.portfolio-modal-meta p {
+    font-size: 0.9rem;
+    color: var(--color-gray-darker);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-modal-meta strong {
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+/* Slideshow container */
+.portfolio-modal-slideshow {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    background-color: var(--color-gray-light);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.slideshow-images {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.slideshow-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.slideshow-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slideshow-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--color-white);
+}
+
+/* Navigation arrows */
+.slideshow-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    color: var(--color-black);
+}
+
+.slideshow-nav:hover {
+    background-color: var(--color-white);
+    opacity: 1;
+}
+
+.slideshow-nav:active {
+    opacity: 0.8;
+}
+
+.slideshow-prev {
+    left: 1rem;
+}
+
+.slideshow-next {
+    right: 1rem;
+}
+
+.slideshow-nav svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Slideshow indicators */
+.slideshow-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--color-gray-dark);
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.indicator.active {
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+}
+
+.indicator:hover {
+    border-color: var(--color-black);
+}
+
+/* Modal responsive styles are handled in main responsive section */
+
+/* Disable body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+.portfolio-content {
+    padding: var(--spacing-md);
+}
+
+.portfolio-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-black);
+}
+
+.portfolio-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-gray-darker);
+    margin-bottom: var(--spacing-md);
+}
+
+.portfolio-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-gray-medium);
+}
+
+.portfolio-role,
+.portfolio-tools {
+    font-size: 0.85rem;
+    color: var(--color-gray-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ========================================
+   CONTACT & FOOTER SECTION (COMBINED)
+   ======================================== */
+
+.contact-footer {
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-gray-medium);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+/* Contact footer main content */
+.contact-footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+/* Contact info (left column) */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 0.5rem;
+}
+
+.contact-tagline {
+    font-size: 1rem;
+    color: var(--color-gray-dark);
+    margin: 0;
+}
+
+/* Contact details (right column) */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-gray-darker);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: var(--color-black);
+    text-decoration: underline;
+}
+
+.contact-link svg {
+    flex-shrink: 0;
+    color: var(--color-gray-dark);
+}
+
+.contact-link:hover svg {
+    color: var(--color-black);
+}
+
+.contact-cta {
+    font-size: 0.95rem;
+    color: var(--color-gray-dark);
+    font-style: italic;
+    margin-top: var(--spacing-xs);
+    margin-bottom: 0;
+}
+
+/* Copyright */
+.contact-copyright {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-gray-medium);
+}
+
+.contact-copyright p {
+    font-size: 0.85rem;
+    color: var(--color-gray-dark);
+    margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* TABLET: 768px - 1199px */
+@media (min-width: 768px) and (max-width: 1199px) {
+    :root {
+        --spacing-xl: 5rem;
+        --spacing-lg: 3rem;
+    }
+    
+    /* Hero section - reduce spacing on tablet */
+    .hero-container {
+        gap: var(--spacing-lg);
+    }
+    
+    .hero-image-wrapper {
+        max-width: 450px;
+    }
+    
+    /* Skills section - 3-4 icons per row on tablet */
+    .skills-icons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: var(--spacing-sm);
+    }
+    
+    /* Portfolio - 2 columns on tablet */
+    .portfolio .row {
+        --bs-gutter-x: 1.5rem;
+    }
+    
+    /* Contact footer - maintain two columns with adjusted spacing */
+    .contact-footer-content {
+        gap: var(--spacing-md);
+    }
+}
+
+/* MOBILE: ≤767px */
+@media (max-width: 767px) {
+    :root {
+        --spacing-xl: 4rem;
+        --spacing-lg: 3rem;
+        --spacing-md: 1.5rem;
+    }
+    
+    /* Global container padding */
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Navigation - stack links with better spacing */
+    .nav-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .nav-links {
+        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0; /* Increase tap target */
+    }
+    
+    /* Hero section - stack vertically on mobile */
+    .hero {
+        min-height: auto;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Image appears above text on mobile */
+    .hero-right {
+        order: -1;
+    }
+    
+    .hero-left {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    /* Image centered and properly sized on mobile */
+    .hero-image-wrapper {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .hero-image {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .social-icons {
+        gap: var(--spacing-sm);
+        justify-content: center;
+    }
+    
+    /* Section spacing */
+    section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    /* Section titles - responsive sizing */
+    .section-title {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* About section - full width with readable content */
+    .about {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .about-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    /* Skills section - 2 icons per row on mobile */
+    .skills-icons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .skill-icon-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .skill-icon-img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .skill-icon-label {
+        font-size: 0.8rem;
+    }
+    
+    .skills-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Portfolio - single column on mobile */
+    .portfolio .row {
+        --bs-gutter-x: 1rem;
+        margin: 0;
+    }
+    
+    .portfolio .col-lg-4,
+    .portfolio .col-md-6 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .portfolio-card {
+        margin-bottom: 0;
+    }
+    
+    .portfolio-title {
+        font-size: 1.25rem;
+    }
+    
+    .portfolio-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    /* Portfolio modal - mobile adjustments */
+    .portfolio-modal-container {
+        width: 95%;
+        margin: 1rem auto;
+        max-height: 95vh;
+    }
+    
+    .portfolio-modal-content {
+        padding: 1.5rem;
+    }
+    
+    .portfolio-modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .slideshow-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .slideshow-prev {
+        left: 0.5rem;
+    }
+    
+    .slideshow-next {
+        right: 0.5rem;
+    }
+    
+    .slideshow-nav svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Contact footer - stack vertically on mobile */
+    .contact-footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+    
+    .contact-info {
+        align-items: center;
+    }
+    
+    .contact-details {
+        align-items: center;
+    }
+    
+    .contact-name {
+        font-size: 1.25rem;
+    }
+    
+    .contact-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 0; /* Increase tap target */
+    }
+}
+
+/* SMALL MOBILE: ≤480px - Additional adjustments for very small screens */
+@media (max-width: 480px) {
+    :root {
+        --spacing-md: 1rem;
+    }
+    
+    .section-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    .hero-name {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+    
+    .nav-links {
+        gap: 0.75rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+    
+    .skills-icons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .skill-icon-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .skill-icon-label {
+        font-size: 0.75rem;
+    }
+}
+
+
+
